@@ -1,14 +1,6 @@
 module github.com/gateway-fm/cdk-erigon-lib
 
-go 1.19
-
-require (
-	github.com/ledgerwatch/interfaces v0.0.0-20230412092010-e1c4a1a4279e
-	github.com/ledgerwatch/log/v3 v3.7.0
-	github.com/ledgerwatch/secp256k1 v1.0.0
-	github.com/ledgerwatch/trackerslist v1.1.0
-	github.com/torquem-ch/mdbx-go v0.27.10
-)
+go 1.21
 
 require (
 	github.com/RoaringBitmap/roaring v1.2.3
@@ -25,20 +17,25 @@ require (
 	github.com/grpc-ecosystem/go-grpc-middleware v1.4.0
 	github.com/hashicorp/golang-lru/v2 v2.0.2
 	github.com/holiman/uint256 v1.2.2
-	github.com/matryer/moq v0.3.1
+	github.com/ledgerwatch/interfaces v0.0.0-20230412092010-e1c4a1a4279e
+	github.com/ledgerwatch/log/v3 v3.7.0
+	github.com/ledgerwatch/secp256k1 v1.0.0
+	github.com/ledgerwatch/trackerslist v1.1.0
+	github.com/matryer/moq v0.3.4
 	github.com/pbnjay/memory v0.0.0-20210728143218-7b4eea64cf58
 	github.com/quasilyte/go-ruleguard/dsl v0.3.22
 	github.com/spaolacci/murmur3 v1.1.0
 	github.com/stretchr/testify v1.8.2
 	github.com/tidwall/btree v1.6.0
-	golang.org/x/crypto v0.8.0
+	github.com/torquem-ch/mdbx-go v0.27.10
+	golang.org/x/crypto v0.26.0
 	golang.org/x/exp v0.0.0-20230321023759-10a507213a29
-	golang.org/x/sync v0.1.0
-	golang.org/x/sys v0.7.0
+	golang.org/x/sync v0.8.0
+	golang.org/x/sys v0.24.0
 	golang.org/x/time v0.3.0
-	google.golang.org/grpc v1.54.0
-	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.3.0
-	google.golang.org/protobuf v1.30.0
+	google.golang.org/grpc v1.65.0
+	google.golang.org/grpc/cmd/protoc-gen-go-grpc v1.5.1
+	google.golang.org/protobuf v1.34.2
 )
 
 require (
@@ -65,8 +62,7 @@ require (
 	github.com/dustin/go-humanize v1.0.0 // indirect
 	github.com/go-logr/logr v1.2.3 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
-	github.com/golang/protobuf v1.5.3 // indirect
-	github.com/google/uuid v1.3.0 // indirect
+	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/huandu/xstrings v1.4.0 // indirect
 	github.com/lispad/go-generics-tools v1.1.0 // indirect
@@ -99,10 +95,10 @@ require (
 	go.etcd.io/bbolt v1.3.6 // indirect
 	go.opentelemetry.io/otel v1.8.0 // indirect
 	go.opentelemetry.io/otel/trace v1.8.0 // indirect
-	golang.org/x/mod v0.9.0 // indirect
-	golang.org/x/net v0.9.0 // indirect
-	golang.org/x/text v0.9.0 // indirect
-	golang.org/x/tools v0.7.0 // indirect
+	golang.org/x/mod v0.20.0 // indirect
+	golang.org/x/net v0.28.0 // indirect
+	golang.org/x/text v0.17.0 // indirect
+	golang.org/x/tools v0.24.0 // indirect
 	google.golang.org/genproto v0.0.0-20230306155012-7f2fa6fef1f4 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
