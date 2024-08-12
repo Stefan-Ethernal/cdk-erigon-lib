@@ -29,7 +29,7 @@ require (
 	github.com/tidwall/btree v1.6.0
 	github.com/torquem-ch/mdbx-go v0.27.10
 	golang.org/x/crypto v0.26.0
-	golang.org/x/exp v0.0.0-20230321023759-10a507213a29
+	golang.org/x/exp v0.0.0-20230905200255-921286631fa9
 	golang.org/x/sync v0.8.0
 	golang.org/x/sys v0.24.0
 	golang.org/x/time v0.3.0
@@ -102,3 +102,5 @@ require (
 	google.golang.org/genproto v0.0.0-20230306155012-7f2fa6fef1f4 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
+
+replace github.com/ledgerwatch/interfaces v0.0.0-20230412092010-e1c4a1a4279e => github.com/erigontech/interfaces v0.0.0-20230412092010-e1c4a1a4279e

@@ -34,6 +34,7 @@ import (
 	"github.com/c2h5oh/datasize"
 	"github.com/gateway-fm/cdk-erigon-lib/common"
 	dir2 "github.com/gateway-fm/cdk-erigon-lib/common/dir"
+	"github.com/gateway-fm/cdk-erigon-lib/common/math"
 	"github.com/gateway-fm/cdk-erigon-lib/etl"
 	"github.com/ledgerwatch/log/v3"
 	"golang.org/x/exp/slices"
@@ -272,11 +273,11 @@ func (db *DictionaryBuilder) Less(i, j int) bool {
 	return db.items[i].score < db.items[j].score
 }
 
-func dictionaryBuilderLess(i, j *Pattern) bool {
+func dictionaryBuilderLess(i, j *Pattern) int {
 	if i.score == j.score {
-		return bytes.Compare(i.word, j.word) < 0
+		return bytes.Compare(i.word, j.word)
 	}
-	return i.score < j.score
+	return math.CompareUint64(i.score, j.score)
 }
 
 func (db *DictionaryBuilder) Swap(i, j int) {
@@ -355,11 +356,11 @@ type Pattern struct {
 type PatternList []*Pattern
 
 func (pl PatternList) Len() int { return len(pl) }
-func patternListLess(i, j *Pattern) bool {
+func patternListLess(i, j *Pattern) int {
 	if i.uses == j.uses {
-		return bits.Reverse64(i.code) < bits.Reverse64(j.code)
+		return math.CompareUint64(bits.Reverse64(i.code), bits.Reverse64(j.code))
 	}
-	return i.uses < j.uses
+	return math.CompareUint64(i.uses, j.uses)
 }
 
 // PatternHuff is an intermediate node in a huffman tree of patterns
@@ -527,11 +528,11 @@ type PositionList []*Position
 
 func (pl PositionList) Len() int { return len(pl) }
 
-func positionListLess(i, j *Position) bool {
+func positionListLess(i, j *Position) int {
 	if i.uses == j.uses {
-		return bits.Reverse64(i.code) < bits.Reverse64(j.code)
+		return math.CompareUint64(bits.Reverse64(i.code), bits.Reverse64(j.code))
 	}
-	return i.uses < j.uses
+	return math.CompareUint64(i.uses, j.uses)
 }
 
 type PositionHeap []*PositionHuff

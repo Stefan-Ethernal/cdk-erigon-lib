@@ -25,6 +25,7 @@ import (
 	"strings"
 
 	"github.com/gateway-fm/cdk-erigon-lib/common/dir"
+	"github.com/gateway-fm/cdk-erigon-lib/common/math"
 	"golang.org/x/exp/slices"
 )
 
@@ -212,20 +213,20 @@ func ParseDir(dir string) (res []FileInfo, err error) {
 		}
 		res = append(res, meta)
 	}
-	slices.SortFunc(res, func(i, j FileInfo) bool {
+	slices.SortFunc(res, func(i, j FileInfo) int {
 		if i.Version != j.Version {
-			return i.Version < j.Version
+			return math.CompareUint64(uint64(i.Version), uint64(j.Version))
 		}
 		if i.From != j.From {
-			return i.From < j.From
+			return math.CompareUint64(i.From, j.From)
 		}
 		if i.To != j.To {
-			return i.To < j.To
+			return math.CompareUint64(i.To, j.To)
 		}
 		if i.T != j.T {
-			return i.T < j.T
+			return math.CompareInt64(int64(i.T), int64(j.T))
 		}
-		return i.Ext < j.Ext
+		return strings.Compare(i.Ext, j.Ext)
 	})
 
 	return res, nil

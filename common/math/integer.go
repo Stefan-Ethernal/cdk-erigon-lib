@@ -31,3 +31,23 @@ func SafeAdd(x, y uint64) (uint64, bool) {
 	sum, carryOut := bits.Add64(x, y, 0)
 	return sum, carryOut != 0
 }
+
+func CompareUint64(x, y uint64) int {
+	if x == y {
+		return 0
+	}
+	if x < y {
+		return -1
+	}
+	return 1
+}
+
+func CompareInt64(x, y int64) int {
+	if x == y {
+		return 0
+	}
+	if x < y {
+		return -1
+	}
+	return 1
+}
